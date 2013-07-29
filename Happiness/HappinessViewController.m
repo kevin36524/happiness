@@ -18,4 +18,10 @@
 @synthesize happiness = _happiness;
 @synthesize faceView = _faceView;
 
+/* hooking my model's setter to redraw my view */
+-(void) setHappiness:(int)happiness {
+    _happiness = happiness;
+    [self.faceView setNeedsDisplay];
+}
+
 @end
