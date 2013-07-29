@@ -7,13 +7,15 @@
 //
 
 #import "HappinessViewController.h"
+#import "FaceView.h"
 
 @interface HappinessViewController ()
-
+@property (weak, nonatomic) IBOutlet FaceView *faceView;
 @end
 
 @implementation HappinessViewController
 
 @synthesize happiness = _happiness;
+@synthesize faceView = _faceView;
 
 @end
