@@ -79,7 +79,7 @@
     if (self.bounds.size.height < self.bounds.size.width) {
         size = self.bounds.size.height/2;
     }
-    size = size * DEFAULT_SCALE;
+    size = size * self.scale;
     
     // Draw face
     CGContextSetLineWidth(context, 5.0);
