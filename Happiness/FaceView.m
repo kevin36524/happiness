@@ -32,8 +32,40 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    // Drawing code
+    
+    // get midpoint
+    CGPoint midPoint;
+    midPoint.x = self.bounds.origin.x + self.bounds.size.width/2;
+    midPoint.y = self.bounds.origin.y + self.bounds.size.height/2;
+    
+    // get radius
+#define DEFAULT_SCALE 0.9
+    CGFloat size = self.bounds.size.width/2;
+    if (self.bounds.size.height < self.bounds.size.width) {
+        size = self.bounds.size.height/2;
+    }
+    size = size * DEFAULT_SCALE;
+    
     // Draw face
+    CGContextSetLineWidth(context, 5.0);
+    [[UIColor blueColor] setStroke];
+    [self drawCircleAtPoint:midPoint withRadius:size withContext:context];
+    
+    // define eye constants
+#define EYE_X 0.35
+#define EYE_Y 0.35
+#define EYE_RAD 0.1
+    
+    CGPoint eyeCenter;
+    eyeCenter.x = midPoint.x - size * EYE_X;
+    eyeCenter.y = midPoint.y - size * EYE_Y;
+    CGFloat eyeRadius = size * EYE_RAD;
+    
+    [self drawCircleAtPoint:eyeCenter withRadius:eyeRadius withContext:context];
+    eyeCenter.x += size * 2 * EYE_X;
+    [self drawCircleAtPoint:eyeCenter withRadius:eyeRadius withContext:context];
+    
+ 
     // draw 2 eyes
     // mouth
 }
