@@ -9,15 +9,24 @@
 #import "FaceView.h"
 
 @implementation FaceView
+- (void) setup {
+    self.contentMode = UIViewContentModeRedraw;
+}
+
+- (void) awakeFromNib {
+    [self setup];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
 }
+
+
 
 - (void) drawCircleAtPoint:(CGPoint)p withRadius:(CGFloat) radius withContext:(CGContextRef) context {
     UIGraphicsPushContext(context);
