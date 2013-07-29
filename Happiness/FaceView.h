@@ -10,4 +10,5 @@
 
 @interface FaceView : UIView
 
+@property (nonatomic) CGFloat scale;
 @end

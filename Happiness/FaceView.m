@@ -9,6 +9,32 @@
 #import "FaceView.h"
 
 @implementation FaceView
+
+#define DEFAULT_SCALE 0.9
+@synthesize scale = _scale;
+
+- (CGFloat) scale {
+    if (!_scale) {
+        return DEFAULT_SCALE;
+    } else {
+        return _scale;
+    }
+}
+
+- (void) setScale:(CGFloat)scale {
+    if (_scale != scale) {
+        _scale = scale;
+        [self setNeedsDisplay];
+    }
+}
+
+- (void) pinch:(UIPinchGestureRecognizer *)gr {
+    if (gr.state == UIGestureRecognizerStateChanged || gr.state == UIGestureRecognizerStateEnded) {
+        self.scale *= gr.scale;
+        gr.scale = 1;
+    }
+}
+
 - (void) setup {
     self.contentMode = UIViewContentModeRedraw;
 }
@@ -48,7 +74,7 @@
     midPoint.y = self.bounds.origin.y + self.bounds.size.height/2;
     
     // get radius
-#define DEFAULT_SCALE 0.9
+
     CGFloat size = self.bounds.size.width/2;
     if (self.bounds.size.height < self.bounds.size.width) {
         size = self.bounds.size.height/2;
@@ -103,6 +129,8 @@
     [[UIColor redColor] setStroke];
     CGContextStrokePath(context);
 }
+
+
 
 
 @end
