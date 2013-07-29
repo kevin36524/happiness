@@ -61,13 +61,38 @@
     eyeCenter.y = midPoint.y - size * EYE_Y;
     CGFloat eyeRadius = size * EYE_RAD;
     
+    // draw eyes
     [self drawCircleAtPoint:eyeCenter withRadius:eyeRadius withContext:context];
     eyeCenter.x += size * 2 * EYE_X;
     [self drawCircleAtPoint:eyeCenter withRadius:eyeRadius withContext:context];
     
- 
-    // draw 2 eyes
     // mouth
+#define MOUTH_X 0.45
+#define MOUTH_Y 0.4
+#define MOUTH_SMILE 0.25
+    
+    CGPoint startPoint;
+    startPoint.x = midPoint.x - size * MOUTH_X;
+    startPoint.y = midPoint.y + size * MOUTH_Y;
+    CGPoint endPoint = startPoint;
+    endPoint.x += size * 2 * MOUTH_X;
+    CGPoint cp1 = startPoint;
+    cp1.x += size * MOUTH_X * 2/3;
+    CGPoint cp2 = endPoint;
+    cp2.x -= size * MOUTH_Y * 2/3;
+    
+    float smile = -1.0;
+    
+    CGFloat smileOffset = smile * size * MOUTH_SMILE;
+    cp1.y += smileOffset;
+    cp2.y += smileOffset;
+    
+    CGContextBeginPath(context);
+    CGContextMoveToPoint(context, startPoint.x, startPoint.y);
+    CGContextAddCurveToPoint(context, cp1.x, cp1.y, cp2.x, cp2.y, endPoint.x, endPoint.y);
+    CGContextSetLineWidth(context, 5.0);
+    [[UIColor redColor] setStroke];
+    CGContextStrokePath(context);
 }
 
 
