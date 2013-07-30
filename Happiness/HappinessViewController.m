@@ -9,7 +9,7 @@
 #import "HappinessViewController.h"
 #import "FaceView.h"
 
-@interface HappinessViewController ()
+@interface HappinessViewController () <FaceViewDataSouce>
 @property (weak, nonatomic) IBOutlet FaceView *faceView;
 @end
 
@@ -24,9 +24,23 @@
     [self.faceView setNeedsDisplay];
 }
 
+-(void) changeHappiness:(UIPanGestureRecognizer *) gr {
+    if (gr.state == UIGestureRecognizerStateChanged || gr.state == UIGestureRecognizerStateEnded) {
+        CGPoint trPoint = [gr translationInView:self.faceView];
+        self.happiness -= trPoint.y/2;
+        [gr setTranslation:CGPointZero inView:self.faceView];
+    }
+}
+
 -(void) setFaceView:(FaceView *)faceView {
     _faceView = faceView;
     [self.faceView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self.faceView action:@selector(pinch:)]];
+    [self.faceView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(changeHappiness:)]];
+    self.faceView.dataSource = self;
+}
+
+-(float) smileForFaceView:(FaceView *)sender {
+    return ((self.happiness - 50) / 50.0);
 }
 
 @end

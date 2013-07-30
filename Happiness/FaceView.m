@@ -12,6 +12,7 @@
 
 #define DEFAULT_SCALE 0.9
 @synthesize scale = _scale;
+@synthesize dataSource = _dataSource;
 
 - (CGFloat) scale {
     if (!_scale) {
@@ -116,7 +117,7 @@
     CGPoint cp2 = endPoint;
     cp2.x -= size * MOUTH_Y * 2/3;
     
-    float smile = -1.0;
+    float smile = [self.dataSource smileForFaceView:self];
     
     CGFloat smileOffset = smile * size * MOUTH_SMILE;
     cp1.y += smileOffset;
