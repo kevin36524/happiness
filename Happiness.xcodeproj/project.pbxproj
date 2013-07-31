@@ -19,6 +19,7 @@
 		4CC35E1A17A6AE77003CDF81 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC35E1817A6AE77003CDF81 /* MainStoryboard.storyboard */; };
 		4CC35E1D17A6AE77003CDF81 /* HappinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC35E1C17A6AE77003CDF81 /* HappinessViewController.m */; };
 		4CC35E2517A6B5E0003CDF81 /* FaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC35E2417A6B5E0003CDF81 /* FaceView.m */; };
+		4CCD493E17A8B21E00CF23A4 /* PycologistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD493D17A8B21E00CF23A4 /* PycologistViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		4CC35E1C17A6AE77003CDF81 /* HappinessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HappinessViewController.m; sourceTree = "<group>"; };
 		4CC35E2317A6B5E0003CDF81 /* FaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceView.h; sourceTree = "<group>"; };
 		4CC35E2417A6B5E0003CDF81 /* FaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceView.m; sourceTree = "<group>"; };
+		4CCD493C17A8B21E00CF23A4 /* PycologistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PycologistViewController.h; sourceTree = "<group>"; };
+		4CCD493D17A8B21E00CF23A4 /* PycologistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PycologistViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				4CC35E1B17A6AE77003CDF81 /* HappinessViewController.h */,
 				4CC35E2317A6B5E0003CDF81 /* FaceView.h */,
 				4CC35E2417A6B5E0003CDF81 /* FaceView.m */,
+				4CCD493C17A8B21E00CF23A4 /* PycologistViewController.h */,
+				4CCD493D17A8B21E00CF23A4 /* PycologistViewController.m */,
 				4CC35E1C17A6AE77003CDF81 /* HappinessViewController.m */,
 				4CC35E0717A6AE77003CDF81 /* Supporting Files */,
 			);
@@ -183,6 +188,7 @@
 				4CC35E1117A6AE77003CDF81 /* HappinessAppDelegate.m in Sources */,
 				4CC35E1D17A6AE77003CDF81 /* HappinessViewController.m in Sources */,
 				4CC35E2517A6B5E0003CDF81 /* FaceView.m in Sources */,
+				4CCD493E17A8B21E00CF23A4 /* PycologistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +311,7 @@
 				4CC35E2217A6AE77003CDF81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
